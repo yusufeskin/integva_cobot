@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<robot name="Coint_5r2">
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+       <mesh filename="package://robot_description/meshes/e110T_Base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="green">
+        <color rgba="0.3 0.3 0.3 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+       <mesh filename="package://robot_description/meshes/e110T_Base.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link" />
+    <child link="Joint1" />
+    <origin xyz="0 0 0.1123" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="1.0" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <link name="Joint1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="green">
+        <color rgba="0 0.3 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="Joint1" />
+    <child link="Joint2" />
+    <origin xyz="0 -0.134 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="100" velocity="1.0" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <link name="Joint2">
+    <visual>
+       <origin xyz="0 0 0.425" rpy="1.57 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="green">
+        <color rgba="0 0.3 0 1" />
+      </material>
+    </visual>
+    <collision>
+       <origin xyz="0 0 0.425" rpy="1.57 0 0" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="-1.57 0 3.14" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="green">
+        <color rgba="0 0.3 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="-1.57 0 3.14" />
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+
+    <visual>
+       <origin xyz="0 0 0.2" rpy="0 0 0" />
+      <geometry>
+       <cylinder length="0.4" radius="0.05"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+       <origin xyz="0 0 0.2" rpy="0 0 0" />
+      <geometry>
+       <cylinder length="0.4" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="Joint2" />
+    <child link="Joint3" />
+    <origin xyz="0 0.1345 0.425" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="100" velocity="1.0" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <link name="Joint3">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T_Bos.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.57 0 3.14" />
+      <material name="gray">
+        <color rgba="0.1 0.1 0.5 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e110T_Bos.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.57 0 3.14" />
+    </collision>
+
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+       <origin xyz="0 0 0.401" rpy="1.57 0 3.14" />
+      <material name="red">
+        <color rgba="0.8 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+       <origin xyz="0 0 0.401" rpy="1.57 0 3.14" />
+    </collision>
+
+    <visual>
+       <origin xyz="0 0 0.2" rpy="0 0 0" />
+      <geometry>
+       <cylinder length="0.4" radius="0.03"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 .5 .5 1" />
+      </material>
+    </visual>
+    <collision>
+       <origin xyz="0 0 0.2" rpy="0 0 0" />
+      <geometry>
+       <cylinder length="0.4" radius="0.03"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0.07" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.01" radius="0.05"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 .5 .5 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.07" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.01" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="Joint3" />
+    <child link="Joint4" />
+    <origin xyz="0 -0.086 0.401" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="100" velocity="1.0" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <link name="Joint4">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="3.14 0 0" />
+      <material name="red">
+        <color rgba="0.8 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="3.14 0 0" />
+    </collision>
+  </link>
+
+  <joint name="joint_5" type="revolute">
+    <parent link="Joint4" />
+    <child link="Joint5" />
+    <origin xyz="0 0 0.086" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="1.0" lower="-3.14" upper="3.14" />
+  </joint>
+
+  <link name="Joint5">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.57 0 3.14" />
+      <material name="red">
+        <color rgba="0.8 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="1.57 0 3.14" />
+    </collision>
+  </link>
+
+  <joint name="joint_6" type="revolute">
+    <parent link="Joint5" />
+    <child link="Joint6" />
+    <origin xyz="0 -0.0725 0" rpy="1.57 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="100" velocity="1.0" lower="-6.28" upper="6.28" />
+  </joint>
+
+  <link name="Joint6">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T_Flans3.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="cyan">
+        <color rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/e70T_Flans3.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision>
+  </link>
+
+
+</robot>
