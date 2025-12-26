@@ -41,12 +41,33 @@ def generate_launch_description():
         parameters=[{'robot_description': robot_description_raw}]
     )
 
-    node_joint_state_publisher_gui = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui'
+    # node_joint_state_publisher_gui = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     name='joint_state_publisher_gui'
+    # )
+
+    controller = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[
+            {'robot_description': robot_description_raw},
+            os.path.join(get_package_share_directory(pkg_name), "config", "ros2_controllers.yaml")
+        ],
+        output="screen",
     )
 
+    spawner_jsb = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+    )
+
+    spawner_arm = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["arm_controller"],
+    )
     # spawn_entity = Node(
     #     package='ros_gz_sim',
     #     executable='create',
@@ -65,6 +86,9 @@ def generate_launch_description():
 
     return LaunchDescription([
         node_robot_state_publisher,
-        node_joint_state_publisher_gui,
-        node_rviz
+        # node_joint_state_publisher_gui,
+        node_rviz,
+        spawner_arm,
+        spawner_jsb,
+        controller
     ])
